@@ -51,6 +51,8 @@ function novaTarefa(){
     .then(res => {
         fecharTarefa();
         buscarTarefas();
+        let form = document.querySelector("#inserirTarefa form");
+        form.reset();
     })
 }
 
@@ -67,9 +69,17 @@ function deletarTarefa(id){
 
 function pesquisarTarefas(){
     let lis = document.querySelectorAll("ul li");
-    console.log(lis);
-    lis.forEach(li => console.log(li.children[0].innerText))
     if(busca.value.length > 0){
-        
-    }
+        lis.forEach(li => {
+            if(!li.children[0].innerText.includes(busca.value)){
+                li.classList.add('oculto');
+            } else{
+                li.classList.remove('oculto');
+            }
+        })
+    } else{
+        lis.forEach(li => {
+            li.classList.remove('oculto');
+        })
+    } 
 }

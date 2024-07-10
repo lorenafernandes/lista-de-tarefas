@@ -70,10 +70,15 @@ header input {
 
 #tarefas ul li {
     padding: 16px;
+    display: initial;
     border-radius: 8px;
     width: calc(25% - 12px);
     background-color: white;
     box-shadow: 0 5px 10px #00000080;
+}
+
+#tarefas ul li.oculto {
+    display: none;
 }
 
 #tarefas ul li h5 {
